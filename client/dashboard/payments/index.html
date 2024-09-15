@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payments - GigsHive</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>GigsHive</h2>
+        </div>
+        <ul class="nav-list">
+            <li><a href="#"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="#"><i class="fas fa-bell"></i> Notifications</a></li>
+            <li><a href="#"><i class="fas fa-users"></i> Job Listings</a></li>
+            <li><a href="#"><i class="fas fa-comments"></i> Messages</a></li>
+            <li><a href="#"><i class="fas fa-wallet"></i> Payments</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header class="main-header-t">
+      
+       
+            <div class="profile-menu">
+              <button class="profile-btn">
+                <i class="fas fa-user"></i>
+              </button>
+              <div class="profile-dropdown">
+                <a href="#">Profile</a>
+                <a href="#">Notifications</a>
+                <a href="#">Switch to Freelancer Account</a>
+              </div>
+            </div>
+            <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const profileBtn = document.querySelector('.profile-btn');
+                const profileDropdown = document.querySelector('.profile-dropdown');
+            
+                profileBtn.addEventListener('click', function () {
+                    if (profileDropdown.style.display === 'block') {
+                        profileDropdown.style.display = 'none';
+                    } else {
+                        profileDropdown.style.display = 'block';
+                    }
+                });
+            
+                // Optional: Hide dropdown if clicked outside
+                document.addEventListener('click', function (event) {
+                    if (!profileBtn.contains(event.target) && !profileDropdown.contains(event.target)) {
+                        profileDropdown.style.display = 'none';
+                    }
+                });
+            });
+            </script>
+          </header>
+        <header class="head">
+            <h1>Payments <i class="fas fa-wallet"></i></h1>
+        </header>
+
+        <section class="payments-overview">
+            <div class="card">
+                <h3>Total Balance</h3>
+                <p><i class="fas fa-dollar-sign"></i> $5,230.75</p>
+            </div>
+            <div class="card">
+                <h3>Pending Payments</h3>
+                <p><i class="fas fa-hourglass-half"></i> $1,200.50</p>
+            </div>
+            <div class="card">
+                <h3>Withdrawable</h3>
+                <p><i class="fas fa-money-bill-wave"></i> $4,030.25</p>
+            </div>
+        </section>
+
+        <section class="transaction-history">
+            <h2>Transaction History</h2>
+            <table class="transaction-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>12/09/2024</td>
+                        <td>Freelancer Payment for Project #23</td>
+                        <td><span class="status success">Completed</span></td>
+                        <td>$1,000.00</td>
+                    </tr>
+                    <tr>
+                        <td>10/09/2024</td>
+                        <td>Withdrawal to Bank Account</td>
+                        <td><span class="status pending">Pending</span></td>
+                        <td>$200.50</td>
+                    </tr>
+                    <tr>
+                        <td>08/09/2024</td>
+                        <td>Freelancer Payment for Project #21</td>
+                        <td><span class="status success">Completed</span></td>
+                        <td>$3,500.00</td>
+                    </tr>
+                    <tr>
+                        <td>01/09/2024</td>
+                        <td>Platform Fees</td>
+                        <td><span class="status failed">Failed</span></td>
+                        <td>$30.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- New Invoice Section -->
+        <section class="invoice-section">
+            <h2>Invoices</h2>
+            <table class="invoice-table">
+                <thead>
+                    <tr>
+                        <th>Invoice No.</th>
+                        <th>Date</th>
+                        <th>Project</th>
+                        <th>Status</th>
+                        <th>Amount</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#INV-00123</td>
+                        <td>12/09/2024</td>
+                        <td>Project #23</td>
+                        <td><span class="status success">Paid</span></td>
+                        <td>$1,000.00</td>
+                        <td><a href="#" class="download-link"><i class="fas fa-download"></i> Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>#INV-00124</td>
+                        <td>08/09/2024</td>
+                        <td>Project #21</td>
+                        <td><span class="status pending">Pending</span></td>
+                        <td>$3,500.00</td>
+                        <td><a href="#" class="download-link"><i class="fas fa-download"></i> Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>#INV-00125</td>
+                        <td>01/09/2024</td>
+                        <td>Platform Fees</td>
+                        <td><span class="status failed">Unpaid</span></td>
+                        <td>$30.00</td>
+                        <td><a href="#" class="download-link"><i class="fas fa-download"></i> Download</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Footer -->
+    <footer class="w-full py-6 bg-gray-900 text-white bg-[#111827]">
+      <div class="container mx-auto px-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div>
+                  <h3 class="font-semibold mb-2">About</h3>
+                  <ul class="space-y-1">
+                      <li><a href="/aboutus.html" class="hover:text-secondary">About Us</a></li>
+                      <li><a href="/team.html" class="hover:text-secondary">Our Team</a></li>
+                      <li><a href="#" class="hover:text-secondary">Terms of Service</a></li>
+                      <li><a href="#" class="hover:text-secondary">Privacy Policy</a></li>
+                  </ul>
+              </div>
+              <div>
+                  <h3 class="font-semibold mb-2">Support</h3>
+                  <ul class="space-y-1">
+                      <li><a href="/faq.html" class="hover:text-secondary">FAQs</a></li>
+                      <li><a href="#" class="hover:text-secondary">Contact Us</a></li>
+                  </ul>
+              </div>
+              <div>
+                  <h3 class="font-semibold mb-2">Follow Us</h3>
+                  <div class="flex space-x-4">
+                      <a href="#" class="text-white hover:text-secondary">
+                          <i data-lucide="instagram" class="h-6 w-6"></i>
+                          <span class="sr-only">Instagram</span>
+                      </a>
+                      <a href="#" class="text-white hover:text-secondary">
+                          <i data-lucide="twitter" class="h-6 w-6"></i>
+                          <span class="sr-only">Twitter</span>
+                      </a>
+                      <a href="#" class="text-white hover:text-secondary">
+                          <i data-lucide="facebook" class="h-6 w-6"></i>
+                          <span class="sr-only">Facebook</span>
+                      </a>
+                  </div>
+              </div>
+              <div>
+                  <h3 class="font-semibold mb-2">Newsletter</h3>
+                  <p class="text-sm mb-2">Subscribe to our newsletter for the latest gigs and freelancing tips</p>
+                  <form class="flex">
+                      <input type="email" placeholder="Enter your email" class="rounded-l-md text-black px-3 py-2 w-full">
+                      <button type="submit" class="rounded-r-md bg-primary hover:bg-[#5649c9] text-white px-4 py-2">Subscribe</button>
+                  </form>
+              </div>
+          </div>
+          <div class="mt-8 text-center text-sm">© 2024 GigsHive. All rights reserved.</div>
+      </div>
+  </footer>
+</body>
+</html>
