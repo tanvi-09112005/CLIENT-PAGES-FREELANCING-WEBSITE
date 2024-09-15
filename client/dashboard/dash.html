@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2>GigsHive</h2>
+    </div>
+    <ul class="nav-list">
+      <li><a href="#"><i class="fas fa-home"></i>Dashboard</a></li>
+      <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
+      
+      <li><a href="#"><i class="fas fa-bell"></i>Notifications</a></li>
+      <li><a href="#"><i class="fas fa-users"></i>Job Listings</a></li>
+      <li><a href="#"><i class="fas fa-comments"></i> Messages</a></li>
+      <li><a href="#"><i class="fas fa-wallet"></i> Payments</a></li>
+      
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content" id="main-content">
+    <header class="main-header-t">
+      <h1>Welcome, Client</h1>
+     
+      <div class="profile-menu">
+        <button class="profile-btn">
+          <i class="fas fa-user"></i>
+        </button>
+        <div class="profile-dropdown">
+          <a href="#">Profile</a>
+          <a href="#">Notifications</a>
+          <a href="#">Switch to Freelancer Account</a>
+        </div>
+      </div>
+    </header>
+    
+
+    <section class="dashboard-content">
+      <button class="btn btn-primary" id="postJobBtn">Post a Job</button>
+      <!-- Overview Section -->
+      <div class="overview">
+        <div class="overview-card">
+          <h3>Active Projects</h3>
+          <p>3</p>
+        </div>
+        <div class="overview-card">
+          <h3>Proposals Received</h3>
+          <p>12</p>
+        </div>
+        <div class="overview-card">
+          <h3>Total Budget</h3>
+          <p>$15,000</p>
+        </div>
+        <div class="overview-card">
+          <h3>Pending Payments</h3>
+          <p>$2,000</p>
+        </div>
+      </div>
+
+      <!-- Chart Section -->
+      <div class="charts">
+        <div class="chart-container">
+          <h2>Spending Overview</h2>
+          <canvas id="spendingChart"></canvas>
+        </div>
+        <div class="chart-container">
+          <h2>Project Status</h2>
+          <canvas id="projectChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Recent Activity and Active Projects -->
+      <div class="activity-projects">
+        <section class="recent-activity">
+          <h2>Recent Activities</h2>
+          <ul class="activity-list">
+            <li>Reviewed proposal from Freelancer XYZ <span class="time">2 days ago</span></li>
+            <li>Completed payment for Project "Logo Design" <span class="time">4 days ago</span></li>
+            <li>Posted new job "Mobile App Development" <span class="time">1 week ago</span></li>
+            <li>Sent feedback to Freelancer ABC <span class="time">2 weeks ago</span></li>
+          </ul>
+        </section>
+
+        <section class="projects">
+          <h2>Active Projects</h2>
+          <div class="project-card">
+            <h3>Project: Website Redesign</h3>
+            <p>Status: In Progress</p>
+            <p>Freelancer: John Doe</p>
+            <button class="view-details">View Details</button>
+          </div>
+          <div class="project-card">
+            <h3>Project: SEO Optimization</h3>
+            <p>Status: In Progress</p>
+            <p>Freelancer: Jane Smith</p>
+            <button class="view-details">View Details</button>
+          </div>
+        </section>
+        <section class="completed-projects">
+          <h2>Completed Projects</h2>
+          <div class="completed-project-card">
+            <h3>Project: Logo Design</h3>
+            <p>Status: Completed</p>
+            <p>Freelancer: Alice Johnson</p>
+            <p>Completion Date: August 15, 2024</p>
+            <button class="view-details">View Details</button>
+          </div>
+          <div class="completed-project-card">
+            <h3>Project: Mobile App Design</h3>
+            <p>Status: Completed</p>
+            <p>Freelancer: Bob Brown</p>
+            <p>Completion Date: July 30, 2024</p>
+            <button class="view-details">View Details</button>
+          </div>
+        </section>
+        <!-- Additional Right-Side Section -->
+<section class="upcoming-deadlines">
+  <h2>Upcoming Deadlines</h2>
+  <ul class="deadline-list">
+    <li>Website Redesign - September 20, 2024</li>
+    <li>SEO Optimization - September 25, 2024</li>
+    <li>Mobile App Development - October 5, 2024</li>
+  </ul>
+</section>
+<div id="postJobModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Post a New Job</h2>
+    <form id="postJobForm">
+      <div class="form-group">
+        <label for="jobTitle">Job Title:</label>
+        <input type="text" id="jobTitle" name="jobTitle" required>
+      </div>
+      <div class="form-group">
+        <label for="jobDescription">Job Description:</label>
+        <textarea id="jobDescription" name="jobDescription" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="skillsRequired">Skills Required:</label>
+        <input type="text" id="skillsRequired" name="skillsRequired" required>
+      </div>
+      <div class="form-group">
+        <label for="budget">Budget:</label>
+        <input type="number" id="budget" name="budget" required>
+      </div>
+      <div class="form-group">
+        <label for="deadline">Deadline:</label>
+        <input type="date" id="deadline" name="deadline" required>
+      </div>
+      <div class="form-group">
+        <label for="communicationMethod">Preferred Communication Method:</label>
+        <select id="communicationMethod" name="communicationMethod" required>
+          <option value="chat">Chat</option>
+          <option value="email">Email</option>
+          <option value="phone">Phone</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit Job</button>
+    </form>
+  </div>
+</div>
+      </div>
+    </section>
+  </div>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Footer -->
+  <footer class="w-full py-6 bg-gray-900 text-white bg-[#111827]">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div>
+                <h3 class="font-semibold mb-2">About</h3>
+                <ul class="space-y-1">
+                    <li><a href="/aboutus.html" class="hover:text-secondary">About Us</a></li>
+                    <li><a href="/team.html" class="hover:text-secondary">Our Team</a></li>
+                    <li><a href="#" class="hover:text-secondary">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-secondary">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-semibold mb-2">Support</h3>
+                <ul class="space-y-1">
+                    <li><a href="/faq.html" class="hover:text-secondary">FAQs</a></li>
+                    <li><a href="#" class="hover:text-secondary">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-semibold mb-2">Follow Us</h3>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-white hover:text-secondary">
+                        <i data-lucide="instagram" class="h-6 w-6"></i>
+                        <span class="sr-only">Instagram</span>
+                    </a>
+                    <a href="#" class="text-white hover:text-secondary">
+                        <i data-lucide="twitter" class="h-6 w-6"></i>
+                        <span class="sr-only">Twitter</span>
+                    </a>
+                    <a href="#" class="text-white hover:text-secondary">
+                        <i data-lucide="facebook" class="h-6 w-6"></i>
+                        <span class="sr-only">Facebook</span>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3 class="font-semibold mb-2">Newsletter</h3>
+                <p class="text-sm mb-2">Subscribe to our newsletter for the latest gigs and freelancing tips</p>
+                <form class="flex">
+                    <input type="email" placeholder="Enter your email" class="rounded-l-md text-black px-3 py-2 w-full">
+                    <button type="submit" class="rounded-r-md bg-primary hover:bg-[#5649c9] text-white px-4 py-2">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="mt-8 text-center text-sm">© 2024 GigsHive. All rights reserved.</div>
+    </div>
+</footer>
+  <script src="script.js"></script>
+</body>
+</html>
