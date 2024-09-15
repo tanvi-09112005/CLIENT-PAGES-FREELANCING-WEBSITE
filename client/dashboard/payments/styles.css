@@ -1,0 +1,269 @@
+:root {
+    --main-color: #6c5ce7;
+    --secondary-color: #a29bfe;
+    --lighter-color: #e0e0e7;
+    --light-color: #b0b0c0;
+    --dark-color: #52505e;
+}/* General Styling */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--lighter-color);
+    min-height: 100vh; /* Ensure body covers full height */
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 260px;
+    background-color: var(--dark-color);
+    color: white;
+    position: fixed;
+    height: 100%;
+    transition: width 0.3s;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    padding: 20px;
+    background-color: var(--main-color);
+    border-bottom: 1px solid var(--light-color);
+}
+
+.nav-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-list li {
+    padding: 15px;
+}
+
+.nav-list li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-list li a i {
+    margin-right: 12px;
+}
+
+.nav-list li:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Main Content Styling */
+.main-content {
+    margin-left: 260px;
+    padding: 30px;
+    width: calc(100% - 260px);
+    background-color: #ffffff;
+    min-height: calc(100vh - 90px); /* Ensure main content is tall enough */
+    padding-bottom: 100px; /* Add padding to make space for footer */
+}
+
+/* Header Styling */
+.main-header-t {
+    background-color: var(--dark-color); /* Match sidebar */
+    color: white;
+    padding: 10px 20px; /* Increased padding for better space */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--light-color);
+    position: fixed;
+    top: 0;
+    width: calc(100% - 260px); /* Full width minus sidebar */
+    left: 260px; /* Start after sidebar */
+    z-index: 20;
+    box-sizing: border-box;
+}
+.profile-menu {
+    position: relative;
+    margin-left: auto; /* Pushes the profile menu to the right */
+}
+
+.profile-btn {
+    background-color: var(--primary-color); /* Adjust color as needed */
+    border: none;
+    color: #ffffff;
+    font-size: 16px; /* Adjust font size as needed */
+    padding: 6px; /* Adjust padding as needed */
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.profile-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #ffffff;
+    color: #333;
+    border: 1px solid var(--light-color); /* Adjust border color as needed */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    z-index: 30;
+}
+
+.profile-dropdown a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.profile-dropdown a:hover {
+    background-color: #f0f2f5;
+}
+
+/* Header Title Styling */
+.main-header-t h1 {
+    margin: 0;
+    font-size: 28px;
+    color: var(--dark-color);
+    display: flex;
+    align-items: center;
+}
+
+.main-header-t h1 i {
+    margin-left: 10px;
+    color: var(--secondary-color);
+}
+
+/* Payments Overview Styling */
+.payments-overview {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px; /* Adjusted margin-top to ensure space from header */
+    margin-bottom: 40px;
+}
+
+.card {
+    background-color: #f8f9fa;
+    border: 1px solid var(--light-color);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    flex: 1;
+    margin: 0 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: var(--dark-color);
+}
+
+.card p {
+    font-size: 24px;
+    color: var(--dark-color);
+    margin: 0;
+}
+
+/* Transaction History & Invoice Section Styling */
+.transaction-history, .invoice-section {
+    margin-top: 20px;
+}
+
+.transaction-history h2, .invoice-section h2 {
+    font-size: 24px;
+    color: var(--dark-color);
+    margin-bottom: 20px;
+}
+
+.transaction-table, .invoice-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+
+.transaction-table th, .transaction-table td, .invoice-table th, .invoice-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--light-color);
+}
+
+.transaction-table th, .invoice-table th {
+    background-color: #f1f1f1;
+    color: var(--dark-color);
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+}
+
+.status.success {
+    background-color: #2ecc71;
+}
+
+.status.pending {
+    background-color: #f39c12;
+}
+
+.status.failed {
+    background-color: #e74c3c;
+}
+
+.download-link {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.download-link:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styling */
+footer {
+    background-color: var(--dark-color);
+    color: white;
+    position: relative; /* Make footer relative to the main content */
+    width: 100%;
+    padding: 20px;
+    bottom: 0;
+    text-align: center;
+}
+
+footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .payments-overview {
+        flex-direction: column;
+    }
+
+    .card {
+        margin: 10px 0;
+    }
+}
